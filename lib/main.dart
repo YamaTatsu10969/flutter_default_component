@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -39,7 +40,11 @@ class MainBottomBarPage extends StatefulWidget {
 class _MainBottomBarPageState extends State<MainBottomBarPage> {
   int _selectedIndex = 0;
 
-  static List<Widget> _pageList = [HomePage(), HomePage(), HomePage()];
+  static final List<Widget> _pageList = [
+    HomePage(),
+    HomePage(),
+    TransitionPage(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -63,7 +68,7 @@ class _MainBottomBarPageState extends State<MainBottomBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label: 'search',
+            label: 'Transition',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -78,9 +83,92 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomePage'),
+        title: const Text('HomePage'),
       ),
       body: Container(),
+    );
+  }
+}
+
+class TransitionPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('TransitionPage'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            FlatButton(
+              child: const Text('Push'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DetailPage(
+                      title: 'Push',
+                      description: 'Push transition',
+                    ),
+                  ),
+                );
+              },
+            ),
+            TextButton(
+              child: const Text('iOS push'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => const DetailPage(
+                      title: 'iOS Push',
+                      description: 'Push transition',
+                    ),
+                  ),
+                );
+              },
+            ),
+            RaisedButton(
+              child: const Text('Modal'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DetailPage(
+                      title: 'Modal',
+                      description: 'Modal transition',
+                    ),
+                    fullscreenDialog: true,
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class DetailPage extends StatelessWidget {
+  const DetailPage({Key key, this.title, this.description}) : super(key: key);
+  final String title;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Text(description),
+        ),
+      ),
     );
   }
 }
