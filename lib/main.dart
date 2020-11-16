@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_default_component/Dialogs.dart';
 import 'package:flutter_default_component/transition_page.dart';
 
 void main() {
@@ -43,7 +44,7 @@ class _MainBottomBarPageState extends State<MainBottomBarPage> {
 
   static final List<Widget> _pageList = [
     HomePage(),
-    HomePage(),
+    DialogsPage(),
     TransitionPage(),
   ];
 
@@ -65,7 +66,7 @@ class _MainBottomBarPageState extends State<MainBottomBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'settings',
+            label: 'Dialogs',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.keyboard_arrow_right),
