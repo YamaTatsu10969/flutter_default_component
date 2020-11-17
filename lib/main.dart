@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_default_component/Dialogs.dart';
+import 'package:flutter_default_component/dialog_page.dart';
+import 'package:flutter_default_component/text_page.dart';
 import 'package:flutter_default_component/transition_page.dart';
 
 void main() {
@@ -43,8 +44,8 @@ class _MainBottomBarPageState extends State<MainBottomBarPage> {
   int _selectedIndex = 0;
 
   static final List<Widget> _pageList = [
-    HomePage(),
-    DialogsPage(),
+    TextPage(),
+    DialogPage(),
     TransitionPage(),
   ];
 
@@ -61,33 +62,21 @@ class _MainBottomBarPageState extends State<MainBottomBarPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.text_rotation_angledown_outlined),
+            label: 'Text',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Dialogs',
+            icon: Icon(Icons.messenger_outlined),
+            label: 'Dialog',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.keyboard_arrow_right),
+            icon: Icon(Icons.message_rounded),
             label: 'Transition',
           ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomePage'),
-      ),
-      body: Container(),
     );
   }
 }
