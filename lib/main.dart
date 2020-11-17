@@ -61,7 +61,7 @@ class _MainBottomBarPageState extends State<MainBottomBarPage> {
             label: 'Dialog',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message_rounded),
+            icon: Icon(Icons.directions_transit),
             label: 'Transition',
           ),
           BottomNavigationBarItem(
