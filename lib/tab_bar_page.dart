@@ -10,9 +10,9 @@ class TabBarPage extends StatelessWidget {
           title: const Text('TabBarPage'),
           bottom: const TabBar(
             tabs: [
-              Tab(text: '聴き逃し'),
-              Tab(text: '番組'),
-              Tab(text: '視聴履歴'),
+              Tab(text: 'Car'),
+              Tab(text: 'Transit'),
+              Tab(text: 'bike'),
             ],
           ),
         ),
